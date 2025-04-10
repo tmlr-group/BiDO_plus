@@ -26,7 +26,6 @@ from utils.datasets import get_facescrub_idx_to_class, get_stanford_dogs_idx_to_
 from utils.stylegan import create_image, load_discrimator, load_generator
 from utils.wandb import *
 
-
 def main():
     ####################################
     #        Attack Preparation        #
