@@ -1,0 +1,13 @@
+diff a/metrics/classification_acc.py b/metrics/classification_acc.py	(rejected hunks)
+@@ -68,9 +68,9 @@ class ClassificationAccuracy():
+             precision_list = [['target', 'mean_conf', 'precision']]
+             for t in set(target_list):
+                 mask = torch.where(targets == t, True, False)
+-                conf_masked = confidences[mask]
++                conf_masked = confidences[mask.cpu()]
+                 precision = torch.sum(
+-                    predictions[mask] == t) / torch.sum(targets == t)
++                    predictions[mask.cpu()] == t) / torch.sum(targets == t)
+                 precision_list.append(
+                     [t, conf_masked.mean().item(), precision.cpu().item()])
+             confidences = confidences.tolist()

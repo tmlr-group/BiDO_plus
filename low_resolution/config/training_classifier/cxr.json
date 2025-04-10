@@ -1,0 +1,48 @@
+{
+  "dataset": {
+    "train_file": "../attack_dataset/ChestXray/trainset.txt",
+    "test_file": "../attack_dataset/ChestXray/testset.txt",
+    "model_name": "VGG16",
+    "name": "cxr",
+    "img_path": "../attack_dataset/ChestXray/Img/",
+    "n_classes": 7,
+    "device": "cuda",
+    "num_workers": 2
+  },
+  "VGG19": {
+    "epochs": 60,
+    "batch_size": 64,
+    "instance": 4,
+    "lr": 1e-2,
+    "momentum": 0.9,
+    "weight_decay": 1e-4,
+    "gamma": 0.2,
+    "adjust_epochs": [
+      60
+    ]
+  },
+  "VGG16": {
+    "epochs": 100,
+    "batch_size": 64,
+    "instance": 4,
+    "lr": 1e-2,
+    "momentum": 0.9,
+    "weight_decay": 1e-4,
+    "gamma": 0.2,
+    "adjust_epochs": [
+      100
+    ]
+  },
+  "ResNet": {
+    "epochs": 60,
+    "batch_size": 64,
+    "lr": 1e-2,
+    "adjust_epochs": [
+      60,
+      120
+    ],
+    "momentum": 0.9,
+    "weight_decay": 5e-4,
+    "gamma": 0.2
+  }
+}

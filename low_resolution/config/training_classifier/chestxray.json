@@ -1,0 +1,26 @@
+{
+  "dataset": {
+    "train_file": "../attack_dataset/ChestXray/trainset.txt",
+    "test_file": "../attack_dataset/ChestXray/testset.txt",
+    "model_name": "ResNet",
+    "name": "chestxray",
+    "img_path": "../attack_dataset/ChestXray/Img/",
+    "n_classes": 8,
+    "device": "cuda",
+    "num_workers": 2,
+    "Enhance": "Finetune"
+  },
+  "ResNet": {
+    "epochs": 100,
+    "batch_size": 64,
+    "lr": 1e-4,
+
+    "adjust_epochs": [
+      50, 75
+    ],
+
+    "momentum": 0.9,
+    "weight_decay": 5e-4,
+    "gamma": 0.2
+  }
+}

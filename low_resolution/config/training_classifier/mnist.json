@@ -1,0 +1,94 @@
+{
+  "dataset": {
+    "name": "mnist",
+    "train_file": "../attack_dataset/EMNIST/train.txt",
+    "test_file": "../attack_dataset/EMNIST/test.txt",
+    "gan_file": "../attack_dataset/EMNIST/gan.txt",
+    "aux_ood_file": "../attack_dataset/EMNIST/aux_ood.txt",
+    "test_ood_file": "../attack_dataset/EMNIST/test_ood.txt",
+    "img_path": "../attack_dataset/EMNIST/Img/",
+
+    "instance": 4,
+    "sampler": false
+  },
+
+  "model":{
+    "architecture": "scnn",
+    "num_classes": 10,
+    "pretrained": true
+  },
+  "optimizer":{
+    "Adam":{
+      "lr": 1e-3,
+      "betas": [0.9, 0.999],
+      "weight_decay": 1e-4
+    }
+  },
+  "lr_scheduler":{
+    "MultiStepLR":{
+      "milestones": [10],
+      "gamma": 0.1
+    }
+  },
+
+  "training":{
+    "num_epochs": 20,
+    "batch_size": 128,
+    "num_workers": 4
+  },
+
+"bido":{
+  "enable_bido": true,
+  "params":{
+    "measure": "HSIC",
+    "alpha": 0.01,
+    "beta": 0.1
+  }
+},
+
+"outlier_exp":{
+  "enable_OE": false,
+  "reweighting": false,
+  "mode": "random_OE",
+  "aux_ood_dataset": "celeba_identities",
+  "params":{
+    "gamma": 0.1,
+    "ood_factor": 1.0
+  }
+},
+
+    "SCNN": {
+    "epochs": 30,
+    "batch_size": 64,
+    "lr": 1e-1,
+    "momentum": 0.5,
+    "weight_decay": 0,
+    "gamma": 0.2,
+    "adjust_epochs": [
+      20
+    ]},
+
+  "MCNN": {
+    "epochs": 30,
+    "batch_size": 64,
+    "lr": 1e-2,
+    "momentum": 0.5,
+    "weight_decay": 0,
+    "gamma": 0.2,
+    "adjust_epochs": [
+      20
+    ]},
+    
+    "LeNet": {
+      "epochs": 20,
+      "batch_size": 64,
+      "lr": 0.01,
+      "momentum": 0.5,
+      "weight_decay": 0,
+      "gamma": 0.2,
+      "adjust_epochs": [
+        20,
+        35
+      ]
+    }
+}
